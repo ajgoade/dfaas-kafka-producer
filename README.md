@@ -1,31 +1,25 @@
-# Needs to be updated!!!
+# Instructions
 
-Dockerize a Python Dash app for quick prototyping.
+Dockerize a video feed to a HPE DFaaS Topic
 
-## Build and run
+## Edits
 
-```sh
-docker build -t dash .
+* In ```/app/producer.py ``` verify topic is correct for your DFaaS
+* In ```build.sh``` and ```start.sh``` modify ```lima nerctl``` to ```docker```
+* In ```start.sh``` add your DFaaS user and IP to ```DFAAS_HOST``` env variable
+* Add your ```id_rsa``` file to root of project
 
-docker run -p 8050:8050 \
--v "$(pwd)"/app:/app \
---rm dash
-```
 
-## Access the page
-
-Go to `http://localhost:8050` in browser.
-
-## Switch debug mode in Dockerfile
-
-```dockerfile
-ENV DASH_DEBUG_MODE True # False
-```
-
-## Development
-
-Install the app requirements for development to get better editor support.
+## Build and run 
 
 ```sh
-pipenv install -r app/requirements.txt
+./build.sh
+
 ```
+
+```sh
+./start.sh
+
+```
+
+## Data will start to be produced into your topic
