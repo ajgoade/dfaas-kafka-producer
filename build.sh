@@ -1,1 +1,1 @@
-docker build -t vid_prod_container .
+docker build -t dfaas-kafka-producer .
